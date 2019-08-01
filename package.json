@@ -1,0 +1,17 @@
+{
+  "name": "printbot",
+  "version": "1.0.0",
+  "description": "",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "author": "Cameron Cooper",
+  "license": "ISC",
+  "dependencies": {
+    "@slack/rtm-api": "^5.0.2",
+    "@slack/web-api": "^5.1.0",
+    "apiai": "^4.0.3",
+    "request": "^2.88.0"
+  }
+}
