@@ -12,6 +12,7 @@
     "@slack/rtm-api": "^5.0.2",
     "@slack/web-api": "^5.1.0",
     "apiai": "^4.0.3",
+    "cheerio": "^1.0.0-rc.3",
     "request": "^2.88.0"
   }
 }

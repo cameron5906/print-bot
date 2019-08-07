@@ -11,12 +11,14 @@ class PrintQueueManager {
         }
     }
 
-    addToQueue(userId, userName, url, thingName) {
+    addToQueue(userId, userName, url, thingName, thingImageUrl, thingCategory) {
         this.queue.push({
             userId,
             userName,
             url,
-            thingName
+            thingName,
+            thingImageUrl,
+            thingCategory
         });
         this.save();
     }
@@ -29,7 +31,7 @@ class PrintQueueManager {
     getNextInQueue() {
         if(this.queue.length === 0) return false;
 
-        const result = this.splice(0, 1);
+        const result = this.splice(0, 1)[0];
         this.save();
         return result;
     }

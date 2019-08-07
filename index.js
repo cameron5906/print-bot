@@ -22,6 +22,6 @@ rtm.on('message', async (event) => {
     }
     
     if(event.text.indexOf(`<@${BOT_ID}>`) === -1) return;
-    const response = messageProcessor(event);
+    const response = await messageProcessor(event);
     rtm.sendMessage(response, event.channel);
 });

@@ -1,3 +1,6 @@
 module.exports = {
-    ShowWebcam: require('./ShowWebcam')
+    ShowWebcam: require('./ShowWebcam'),
+    AddToQueue: require('./AddToQueue'),
+    NextInQueue: require('./NextInQueue'),
+    FullQueue: require('./FullQueue')
 }

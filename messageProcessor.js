@@ -1,6 +1,10 @@
 const Dialogflow = require('./dialogflow');
+const Slack = require('./slack');
 const {
-    ShowWebcam
+    ShowWebcam,
+    AddToQueue,
+    NextInQueue,
+    FullQueue
 } = require('./intents');
 
 module.exports = async (message) => {
@@ -8,11 +12,22 @@ module.exports = async (message) => {
     const { result}  = dialogflowResponse;
     const { parameters, metadata} = result;
 
+    const userInfo = await Slack.getUserInfo(message.user);
+    console.log(userInfo);
+
     switch(metadata.intentName) {
         case 'ShowWebcam':
-            return ShowWebcam();
+            const showWebcam = await ShowWebcam(message.channel);
+            return showWebcam;
         case 'AddToQueue':
-            return '';
+            const addToQueue = await AddToQueue(userInfo, parameters.url);
+            return addToQueue;
+        case 'NextInQueue':
+            const nextInQueue = await NextInQueue();
+            return nextInQueue;
+        case 'FullQueue':
+            const fullQueue = await FullQueue();
+            return fullQueue;
         case 'CancelPrint':
             return '';
         case 'PrintDone':
