@@ -4,7 +4,8 @@ const {
     ShowWebcam,
     AddToQueue,
     NextInQueue,
-    FullQueue
+    FullQueue,
+    CancelPrint
 } = require('./intents');
 
 module.exports = async (message) => {
@@ -29,7 +30,8 @@ module.exports = async (message) => {
             const fullQueue = await FullQueue();
             return fullQueue;
         case 'CancelPrint':
-            return '';
+            const cancelPrint = await CancelPrint();
+            return cancelPrint;
         case 'PrintDone':
             return '';
         case 'PrintStarted':
