@@ -1,0 +1,78 @@
+[
+    {
+        "username": "cameron.cooper",
+        "role": "admin"
+    },
+    {
+        "username": "amy-lynn.graf",
+        "role": "user"
+    },
+    {
+        "username": "ben.zehr",
+        "role": "user"
+    },
+    {
+        "username": "bill.combs",
+        "role": "admin"
+    },
+    {
+        "username": "david.benton",
+        "role": "user"
+    },
+    {
+        "username": "hannah.stork",
+        "role": "user"   
+    },
+    {
+        "username": "jeffrey.freet",
+        "role": "user"
+    },
+    {
+        "username": "jeremy.swineheart",
+        "role": "user"
+    },
+    {
+        "username": "josh.hoffman",
+        "role": "user"
+    },
+    {
+        "username": "josh.mcginnis",
+        "role": "user"
+    },
+    {
+        "username": "kenn.scribner",
+        "role": "user"
+    },
+    {
+        "username": "matti.wollega",
+        "role": "user"
+    },
+    {
+        "username": "rich.butcher",
+        "role": "user"
+    },
+    {
+        "username": "ryan.harrington",
+        "role": "user"
+    },
+    {
+        "username": "sam.stull",
+        "role": "user"
+    },
+    {
+        "username": "shane.johnson",
+        "role": "user"
+    },
+    {
+        "username": "s.parthasarathy",
+        "role": "user"
+    },
+    {
+        "username": "meg.weaver",
+        "role": "user"
+    },
+    {
+        "username": "tom.tobey",
+        "role": "user"
+    }
+]
