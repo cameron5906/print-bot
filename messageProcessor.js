@@ -5,7 +5,8 @@ const {
     AddToQueue,
     NextInQueue,
     FullQueue,
-    CancelPrint
+    CancelPrint,
+    PrintDone
 } = require('./intents');
 
 module.exports = async (message) => {
@@ -33,7 +34,8 @@ module.exports = async (message) => {
             const cancelPrint = await CancelPrint();
             return cancelPrint;
         case 'PrintDone':
-            return '';
+            const printDone = await PrintDone();
+            return printDone;
         case 'PrintStarted':
             return '';
     } 

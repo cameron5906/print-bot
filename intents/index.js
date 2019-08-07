@@ -3,5 +3,6 @@ module.exports = {
     AddToQueue: require('./AddToQueue'),
     NextInQueue: require('./NextInQueue'),
     FullQueue: require('./FullQueue'),
-    CancelPrint: require('./CancelPrint')
+    CancelPrint: require('./CancelPrint'),
+    PrintDone: require('./PrintDone')
 }
