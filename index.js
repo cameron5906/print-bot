@@ -1,11 +1,15 @@
 const { RTMClient } = require('@slack/rtm-api');
 const SlackWeb = require('./wrappers/slack');
 const UserService = require('./services/userService');
+const EventService = require('./services/eventService');
+
 const token = process.env.SLACK_TOKEN;
 const BOT_ID = 'UJXHLF3RN'
 
 const messageProcessor = require('./services/messageProcessingService');
 const fileProcessor = require('./services/fileProcessingService');
+
+EventService.start('printEnded', EventService.printEndedEvent, 5000);
 
 const rtm = new RTMClient(token);
 rtm.start()

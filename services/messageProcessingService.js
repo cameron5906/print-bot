@@ -19,6 +19,8 @@ module.exports = async (message) => {
     console.log(userInfo);
 
     switch(metadata.intentName) {
+        case 'Default Fallback Intent':
+            return 'Sorry, whatever you just said to me is not supported; please ask Cameron what I can do.';
         case 'ShowWebcam':
             const showWebcam = await ShowWebcam(message.channel);
             return showWebcam;
