@@ -13,7 +13,9 @@ rtm.on('ready', async () => {
 });
 
 rtm.on('message', async (event) => {
-    if(event.channel !== 'CJF9T5691') return;
+    const isBotMentioned = event.text.indexOf(`<@${BOT_ID}>`) !== -1;
+    const isPrivate = event.channel.indexOf("D") === 0;
+
     if(event.type !== 'message') return;
     if(event['bot_id']) return;
     
@@ -21,7 +23,7 @@ rtm.on('message', async (event) => {
         event = event.message;
     }
     
-    if(event.text.indexOf(`<@${BOT_ID}>`) === -1) return;
+    if(!isBotMentioned && !isPrivate) return;
     const response = await messageProcessor(event);
     rtm.sendMessage(response, event.channel);
 });
