@@ -1,4 +1,6 @@
 const { WebClient } = require('@slack/web-api');
+const request = require('request');
+const fs = require('fs');
 const token = process.env.SLACK_TOKEN;
 
 class Slack {
@@ -22,6 +24,23 @@ class Slack {
             channels: channelId,
             file: data,
             filename: filename
+        });
+    }
+
+    async getFileData(privateUrl) {
+        const downloadId = new Date().getTime();
+
+        return new Promise((resolve, reject) => {
+            request({
+                url: privateUrl,
+                auth: {
+                  bearer: 'xoxb-323434273830-643598513872-3qceeeG8MwEjgomQvyl4IrvP'  
+                }
+            }).pipe(fs.createWriteStream(`./${downloadId}`)).on('finish', () => {
+                const data = fs.readFileSync(`./${downloadId}`);
+                fs.unlinkSync(`./${downloadId}`);
+                resolve(data);
+            });
         });
     }
 

@@ -25,6 +25,10 @@ rtm.on('message', async (event) => {
     if(event.type !== 'message') return;
     if(event['bot_id']) return;
     
+    if(event.files) {
+        const data = await SlackWeb.getFileData(event.files[0].url_private_download);
+        console.log(data.length);
+    }
     
     if(!isBotMentioned && !isPrivate) return;
     const response = await messageProcessor(event);
