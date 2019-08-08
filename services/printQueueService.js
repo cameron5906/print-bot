@@ -35,6 +35,11 @@ class PrintQueueManager {
 
     getNextInQueue() {
         if(this.queue.length === 0) return false;
+        return this.queue[0];
+    }
+
+    popNextInQueue() {
+        if(this.queue.length === 0) return false;
 
         const result = this.queue.splice(0, 1)[0];
         this.save();

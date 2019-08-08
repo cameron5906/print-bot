@@ -5,7 +5,7 @@ const Thingiverse = require('../wrappers/thingiverse');
 
 module.exports = async (userInfo, url) => {
     const thingInfo = await Thingiverse.getThingInfo(url);
-    const currentPrintsQueued = PrintQueueManager.getQueue().length;
+    const currentPrintsQueued = PrintQueueManager.getQueue().length + (PrintQueueManager.getCurrentPrint() ? 1 : 0);
     PrintQueueManager.addToQueue(userInfo.id, userInfo.name, url, thingInfo.title, thingInfo.imageUrl, thingInfo.category);
 
     if(!PrintQueueManager.getCurrentPrint() && currentPrintsQueued === 0) {
