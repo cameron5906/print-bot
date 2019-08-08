@@ -3,7 +3,7 @@ const SlackWeb = require('./wrappers/slack');
 const token = process.env.SLACK_TOKEN;
 const BOT_ID = 'UJXHLF3RN'
 
-const messageProcessor = require('./messageProcessor');
+const messageProcessor = require('./services/messageProcessingService');
 
 const rtm = new RTMClient(token);
 rtm.start()

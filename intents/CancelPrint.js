@@ -1,4 +1,4 @@
-const PrintQueueManager = require('../printQueueManager');
+const PrintQueueManager = require('../services/printQueueService');
 
 module.exports = async (userInfo) => {
     const queue = PrintQueueManager.getQueue();
