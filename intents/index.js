@@ -4,5 +4,6 @@ module.exports = {
     NextInQueue: require('./NextInQueue'),
     FullQueue: require('./FullQueue'),
     CancelPrint: require('./CancelPrint'),
-    PrintDone: require('./PrintDone')
+    PrintDone: require('./PrintDone'),
+    WhatIsPrinting: require('./WhatIsPrinting')
 }

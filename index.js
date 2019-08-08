@@ -14,6 +14,7 @@ rtm.on('ready', async () => {
 });
 
 rtm.on('message', async (event) => {
+    console.log(event);
     if(event.subtype === 'message_replied') {
         event = event.message;
     }
