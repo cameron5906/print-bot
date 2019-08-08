@@ -24,6 +24,20 @@ class Slack {
             filename: filename
         });
     }
+
+    async sendMessage(text, channel, thread) {
+        let ops = {
+            text,
+            channel,
+            markdwn: false
+        }
+
+        if(thread) {
+            ops.thread_ts = thread;
+        }
+
+        await this.web.chat.postMessage(ops);
+    }
 }
 
 module.exports = new Slack;

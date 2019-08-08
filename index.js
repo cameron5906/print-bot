@@ -1,4 +1,5 @@
 const { RTMClient } = require('@slack/rtm-api');
+const SlackWeb = require('./slack');
 const token = process.env.SLACK_TOKEN;
 const BOT_ID = 'UJXHLF3RN'
 
@@ -13,17 +14,18 @@ rtm.on('ready', async () => {
 });
 
 rtm.on('message', async (event) => {
+    if(event.subtype === 'message_replied') {
+        event = event.message;
+    }
+
     const isBotMentioned = event.text.indexOf(`<@${BOT_ID}>`) !== -1;
     const isPrivate = event.channel.indexOf("D") === 0;
 
     if(event.type !== 'message') return;
     if(event['bot_id']) return;
     
-    if(event.subtype === 'message_replied') {
-        event = event.message;
-    }
     
     if(!isBotMentioned && !isPrivate) return;
     const response = await messageProcessor(event);
-    rtm.sendMessage(response, event.channel);
+    SlackWeb.sendMessage(response, event.channel, event.thread_ts || false);
 });
