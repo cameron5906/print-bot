@@ -8,6 +8,11 @@ class Slack {
         this.web = new WebClient(token);
     }
 
+    async getUserIdFromUsername(username) {
+        const response = await this.web.users.list();
+        return response.members.find(u => u.name === username).id;
+    }
+
     async getUserInfo(userId) {
         const response = await this.web.users.info({user: userId});
         const user = response.user;

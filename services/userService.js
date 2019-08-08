@@ -14,6 +14,10 @@ class UserService {
         return userInfo.role;
     }
 
+    getByRole(role) {
+        return users.filter(u => u.role === role);
+    }
+
     async isAllowed(userId) {
         const username = await this._getUsernameFromId(userId);
 

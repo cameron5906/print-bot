@@ -9,5 +9,6 @@ module.exports = async (fileData) => {
 
     const data = await SlackWeb.getFileData(fileData.url_private_download);
     PrintQueueService.setCurrentPrint(printInfo);
+    SlackWeb.sendMessage(`Hey! Just wanted to let you know that your print, ${printInfo.thingName}, is starting! I will send you a message when it's almost done.`, printInfo.userId);
     return `Okay, I'm uploading "${printInfo.thingName}" to the printer now. I will notify ${printInfo.userName} when the print is starting!`;
 }

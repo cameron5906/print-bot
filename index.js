@@ -43,5 +43,17 @@ rtm.on('message', async (event) => {
         response = await messageProcessor(event);
     }
 
-    SlackWeb.sendMessage(response, event.channel, event.thread_ts || false);
+    if(response) {
+        if(typeof response === 'object') {
+            response.forEach(msg => {
+                if(msg.channel) {
+                    SlackWeb.sendMessage(msg.text, msg.channel, false);
+                } else {
+                    SlackWeb.sendMessage(msg.text, event.channel, event.thread_ts || false);
+                }
+            });
+        } else {
+            SlackWeb.sendMessage(response, event.channel, event.thread_ts || false);
+        }
+    }
 });
