@@ -1,5 +1,5 @@
 const request = require('request');
-const Slack = require('../slack');
+const Slack = require('../wrappers/slack');
 const SNAPSHOT_URL = 'http://localhost:8080/?action=snapshot';
 
 module.exports = async (channelId) => {

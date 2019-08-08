@@ -1,7 +1,7 @@
 const request = require('request');
-const Slack = require('../slack');
+const Slack = require('../wrappers/slack');
 const PrintQueueManager = require('../printQueueManager');
-const Thingiverse = require('../thingiverse');
+const Thingiverse = require('../wrappers/thingiverse');
 
 module.exports = async (userInfo, url) => {
     const thingInfo = await Thingiverse.getThingInfo(url);

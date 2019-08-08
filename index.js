@@ -1,5 +1,5 @@
 const { RTMClient } = require('@slack/rtm-api');
-const SlackWeb = require('./slack');
+const SlackWeb = require('./wrappers/slack');
 const token = process.env.SLACK_TOKEN;
 const BOT_ID = 'UJXHLF3RN'
 

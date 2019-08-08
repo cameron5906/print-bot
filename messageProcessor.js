@@ -1,5 +1,5 @@
-const Dialogflow = require('./dialogflow');
-const Slack = require('./slack');
+const Dialogflow = require('./wrappers/dialogflow');
+const Slack = require('./wrappers/slack');
 const {
     ShowWebcam,
     AddToQueue,
