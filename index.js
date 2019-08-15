@@ -17,6 +17,12 @@ rtm.start()
 
 rtm.on('ready', async () => {
     console.log('Connected to Slack RTM');
+
+    UserService.getByRole('admin').forEach(async (user) => {
+        if(user.username.toLowerCase().indexOf("cameron") == -1) return;
+        const userId = await Slack.getUserIdFromUsername(user.username);
+        Slack.sendMessage(`Print service started`, userId);
+    });
 });
 
 rtm.on('message', async (event) => {
