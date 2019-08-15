@@ -20,7 +20,7 @@ rtm.on('ready', async () => {
 
     UserService.getByRole('admin').forEach(async (user) => {
         if(user.username.toLowerCase().indexOf("cameron") == -1) return;
-        const userId = await Slack.getUserIdFromUsername(user.username);
+        const userId = await SlackWeb.getUserIdFromUsername(user.username);
         SlackWeb.sendMessage(`Print service started`, userId);
     });
 });
