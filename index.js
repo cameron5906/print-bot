@@ -26,7 +26,6 @@ rtm.on('ready', async () => {
 });
 
 rtm.on('message', async (event) => {
-    
     if(event.subtype === 'message_replied') {
         event = event.message;
     }
@@ -36,11 +35,11 @@ rtm.on('message', async (event) => {
     const isPrivate = event.channel.indexOf("D") === 0;
 
     if(event.type !== 'message') return;
-    if(event['bot_id']) return;
+    if(event.subtype === 'bot_message') return;
+    if(!isBotMentioned && !isPrivate) return;
     
     let response = '';
 
-    if(!isBotMentioned && !isPrivate) return;
     if(event.files) {
         if(userRole !== "admin") {
             response = `Sorry, only users with the role "admin" can provide me with files!`;
